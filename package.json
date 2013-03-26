@@ -12,6 +12,7 @@
     "colors": "*",
     "kickstart": "*",
     "socket.io": "*",
-    "requirejs": "*"
+    "requirejs": "*",
+    "nodemailer": "*"
   }
 }
