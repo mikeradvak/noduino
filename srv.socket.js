@@ -37,6 +37,8 @@ define(['socket.io', 'public/scripts/libs/Noduino', 'public/scripts/libs/Noduino
   SocketHandler.prototype.bindings = function() {
     var io = this.handler, that = this;
 
+    io.set('log level', 1);
+
     io.sockets.on('connection', function(socket) {
       that.sockets[socket.id] = socket;
 
