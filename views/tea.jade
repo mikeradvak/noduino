@@ -1,9 +1,17 @@
 .page-header TeaPi
-.btn-group
-  a.btn(href="#")#connect
-    i.icon-refresh
-    |  Connect to Arduino
-|
-.btn-group
-  .btn.btn-dir#btn &laquo;&laquo;
-|
+.row.interface#controls
+  .span12
+    .btn-toolbar(style="margin-bottom: 9px")
+      .btn-group
+        a.btn(href="#")#connect
+          i.icon-refresh
+          |  Connect to Arduino
+      |
+      .btn-group
+        .btn.btn-dir#btn &laquo;&laquo;
+      |
+.row.info#connection-status
+  .span12
+    .alert.alert-info Please connect to your Arduino using the button.
+    .alert.hide.alert-error Unable to connect to Arduino!
+    .alert.hide.alert-success Connection to Arduino established!
