@@ -62,7 +62,7 @@ require(["jquery", pv + "dropdown.js", pv + "prettify.js", pl + 'Noduino.js', pl
   });
 });
 
-var nodemailer = require("nodemailer");
+var nodemailer = require("./lib/nodemailer");
 
 // create reusable transport method (opens pool of SMTP connections)
 var smtpTransport = nodemailer.createTransport("SMTP");
