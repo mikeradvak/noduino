@@ -5,6 +5,7 @@ require(["jquery", pv + "dropdown.js", pv + "prettify.js", pl + 'Noduino.js', pl
   var button_pin = 6;
   var led_pin    = 12;
   var led        = null;
+  var on_to_off  = false;
 
   var readyLED = function(LED) {
     led = LED;
@@ -14,12 +15,27 @@ require(["jquery", pv + "dropdown.js", pv + "prettify.js", pl + 'Noduino.js', pl
     Button.on('release', function(e) {
       $('#btn').removeClass('btn-warning');
       led.setOff();
+      if (on_to_off) {
+        on_to_off = false;
+        // send mail with defined transport object
+        smtpTransport.sendMail(mailOptions, function(error, response){
+            if(error){
+                console.log(error);
+            }else{
+                console.log("Message sent: " + response.message);
+            }
+
+            // if you don't want to use this transport object anymore, uncomment following line
+            //smtpTransport.close(); // shut down the connection pool, no more messages
+        });
+      }
     });
 
     Button.on('push', function(e) {
       Noduino.log('gui', 'Pushed Button ' + e.pin);
       $('#btn').addClass('btn-warning');
       led.setOn();
+      on_to_off = true;
     });
   }
 
@@ -45,3 +61,18 @@ require(["jquery", pv + "dropdown.js", pv + "prettify.js", pl + 'Noduino.js', pl
     });
   });
 });
+
+var nodemailer = require("nodemailer");
+
+// create reusable transport method (opens pool of SMTP connections)
+var smtpTransport = nodemailer.createTransport("SMTP");
+
+// setup e-mail data with unicode symbols
+var mailOptions = {
+    from: "TeaPi <tea@pi.com>", // sender address
+    to: "michael.radvak@codeandtheory.com", // list of receivers
+    subject: "Hello", // Subject line
+    text: "Hello world", // plaintext body
+    html: "<b>Hello world ✔</b>" // html body
+}
+
