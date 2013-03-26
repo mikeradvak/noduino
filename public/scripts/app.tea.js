@@ -24,7 +24,7 @@ require(["jquery", pv + "dropdown.js", pv + "prettify.js", pl + 'Noduino.js', pl
   }
 
   var createObjects = function(board) {
-    board.withLED({pin: led}, function(err, LED) { readyLED(LED); });
+    board.withLED({pin: led_pin}, function(err, LED) { readyLED(LED); });
     board.withButton({pin:  button_pin}, function(err, Button) { addButton(Button); $('#btn').click(function(e) {e.preventDefault(); Button.setOn(); Button.setOff(); }); });
   };
 
