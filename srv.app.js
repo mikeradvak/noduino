@@ -9,7 +9,7 @@
  */
  
 define(['kickstart', 'module', 'path', 'fs'], function (kickstart, module, path, fs) {
-  var kickstart = kickstart.withConfig({'name': 'localhost', 'port': 8080, 'path': './'});
+  var kickstart = kickstart.withConfig({'name': 'teapi.local', 'port': 8080, 'path': './'});
   var srv = kickstart.srv();
   
   /**
