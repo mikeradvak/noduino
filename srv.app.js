@@ -53,5 +53,9 @@ define(['kickstart', 'module', 'path', 'fs'], function (kickstart, module, path,
     res.render('example-motor', {jsApp: 'motor', active: 'examples', title: 'noduino', 'examples': examples});
   });
 
+  srv.all('/tea.html', function(req, res) {
+    res.render('tea', {jsApp: 'tea', active: 'examples', title: 'noduino', 'examples': examples});
+  });
+
   return {'kickstart': kickstart, 'srv': srv};
 });
