@@ -1,6 +1,6 @@
 var pv = 'scripts/vendor/';
 var pl = 'scripts/libs/';
-require(["jquery", pv + "dropdown.js", pv + "prettify.js", pl + 'Noduino.js', pl + 'Noduino.Socket.js', pl + 'Logger.HTML.js'], function($, dd, p, NoduinoObj, Connector, Logger) {
+require(["jquery", pv + "dropdown.js", pv + "prettify.js", pl + 'Noduino.js', pl + 'Noduino.Socket.js', pl + 'Logger.HTML.js', './'], function($, dd, p, NoduinoObj, Connector, Logger) {
   var Noduino    = null;
   var button_pin = 6;
   var led_pin    = 12;
@@ -61,18 +61,3 @@ require(["jquery", pv + "dropdown.js", pv + "prettify.js", pl + 'Noduino.js', pl
     });
   });
 });
-
-var nodemailer = require("./lib/nodemailer");
-
-// create reusable transport method (opens pool of SMTP connections)
-var smtpTransport = nodemailer.createTransport("SMTP");
-
-// setup e-mail data with unicode symbols
-var mailOptions = {
-    from: "TeaPi <tea@pi.com>", // sender address
-    to: "michael.radvak@codeandtheory.com", // list of receivers
-    subject: "Hello", // Subject line
-    text: "Hello world", // plaintext body
-    html: "<b>Hello world ✔</b>" // html body
-}
-
